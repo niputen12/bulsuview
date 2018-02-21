@@ -104,7 +104,7 @@ function show(){
 }
 function set_posts(res){
   $.each(res.data, function(i, d){
-      $('.af').append('<h3 class="'+d.id+'">'+ "Date Created: "+ d.inserted_at + "<br>" + d.body +'</h3>');
+      $('.af').append('<h3 class="'+d.id+'">'+ "Date Created: "+ d.inserted_at +" by: "+d.user.firstname+" "+d.user.lastname+ "<br>" + d.body +'</h3>');
      });
 }
 function reset(){
