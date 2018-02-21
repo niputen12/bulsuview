@@ -103,8 +103,10 @@ function show(){
   });
 }
 function set_posts(res){
-
   $.each(res.data, function(i, d){
       $('.af').append('<h3 class="'+d.id+'">'+ "Date Created: "+ d.inserted_at + "<br>" + d.body +'</h3>');
      });
+}
+function reset(){
+  localStorage.clear();
 }
