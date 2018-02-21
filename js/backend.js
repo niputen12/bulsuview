@@ -78,9 +78,11 @@ function post(){
     },
     success: function(res){
       console.log('S');
+      alert('Success');
     },
     error: function(res){
       console.log('E');
+      alert('Error');
     }
   });
 }
