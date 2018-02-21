@@ -14,8 +14,10 @@ $(document).ready(function(){
 })
 //SIGNUP
 function signup(){
+  var local = 'http://localhost:4000';
+  var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
-     url: 'http://localhost:4000/api/users',
+     url: deploy+'/api/users',
      type: 'POST',
      data: {
        user: {
@@ -37,7 +39,7 @@ function signup(){
 //SIGNIN
 function signin(){
   $.ajax({
-    url: 'http://localhost:4000/api/login',
+    url: deploy+'/api/login',
     type: 'POST',
     data: {
         username: $('.username').val(),
@@ -60,7 +62,7 @@ function signin(){
 //HOMEPAGE
 function post(){
   $.ajax({
-    url: 'http://localhost:4000/api/posts',
+    url: deploy+'/api/posts',
     headers: {
        "Authorization":"Bearer "+localStorage.getItem("token")
     },
@@ -81,7 +83,7 @@ function post(){
 //POSTS
 function show(){
   $.ajax({
-      url: 'http://localhost:4000/api/newsfeed',
+      url: deploy+'/api/newsfeed',
       headers: {
          "Authorization":"Bearer "+localStorage.getItem("token")
       },
@@ -96,7 +98,7 @@ function show(){
 }
 function set_posts(res){
 
-  $.each(res.data, function(i, d){  
+  $.each(res.data, function(i, d){
       $('.af').append('<h3 class="'+d.id+'">'+ "Date Created: "+ d.inserted_at + "<br>" + d.body +'</h3>');
      });
 }
