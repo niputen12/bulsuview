@@ -88,19 +88,24 @@ function post(){
 function show(){
   var local = 'http://localhost:4000';
   var deploy = 'https://bulsu.herokuapp.com';
-  $.ajax({
-      url: deploy+'/api/newsfeed',
-      headers: {
-         "Authorization":"Bearer "+localStorage.getItem("token")
-      },
-      type: 'GET',
-      success: function(res){
-        set_posts(res);
-      },
-      error: function(res){
-        console.log(res);
-      }
-  });
+  if(localStorage.getItem("token") === null){
+    alert('Please Log In to continue');
+    location.href = 'home.html';
+  }else{
+    $.ajax({
+        url: deploy+'/api/newsfeed',
+        headers: {
+           "Authorization":"Bearer "+localStorage.getItem("token")
+        },
+        type: 'GET',
+        success: function(res){
+          set_posts(res);
+        },
+        error: function(res){
+          console.log(res);
+        }
+    });
+  }
 }
 function set_posts(res){
   $.each(res.data, function(i, d){
