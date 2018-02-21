@@ -38,6 +38,8 @@ function signup(){
 }
 //SIGNIN
 function signin(){
+  var local = 'http://localhost:4000';
+  var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
     url: deploy+'/api/login',
     type: 'POST',
@@ -61,6 +63,8 @@ function signin(){
 }
 //HOMEPAGE
 function post(){
+  var local = 'http://localhost:4000';
+  var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
     url: deploy+'/api/posts',
     headers: {
@@ -82,6 +86,8 @@ function post(){
 }
 //POSTS
 function show(){
+  var local = 'http://localhost:4000';
+  var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
       url: deploy+'/api/newsfeed',
       headers: {
