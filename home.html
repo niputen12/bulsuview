@@ -4,16 +4,35 @@
   <script  src="https://code.jquery.com/jquery-3.3.1.js"  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="  crossorigin="anonymous"></script>
   <script  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/af.js"></script>
   <script  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
-
   <script src="js/backend.js" /></script>
-</head>
-<body onload="reset();">
-  <form class="sign-in-form">
-    Username: <input type="text" class="username" /> <br/>
-    Password: <input type="password" class="password" /> <br/>
-    Don't Have an account? <a href="signup.html" >Sign Up</a> <br/>
-    <button type ="submit" class="btn-submit">Submit</button>
-  </form>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-</body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="css/signin.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+</head>
+
+<body class="text-center">
+   <form class="form-signin">
+     <img class="mb-4" src="images/bulsulogo.png" alt="" width="100" height="100">
+     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+     <label for="inputUsername" class="sr-only">Email address</label>
+     <input type="text" id="inputUsername" class="form-control username" placeholder="Username" required autofocus>
+     <label for="inputPassword" class="sr-only">Password</label>
+     <input type="password" id="inputPassword" class="form-control password" placeholder="Password" required>
+     <div class="checkbox mb-3">
+       <label>
+         Don't Have an account? <a href="signup.html" >Sign Up</a> <br/>
+       </label>
+     </div>
+     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+     <p class="mt-5 mb-3 text-muted">&copy; PocketMarket Interns 2018-2019 </p>
+   </form>
+ </body>
+
 </html>

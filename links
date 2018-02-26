@@ -1,0 +1,13 @@
+BASE URL : https://bulsu.herokuapp.com
+ROUTE:
+GET  /api/posts // GET POST
+
+POST /api/posts // add a post
+
+POST /api/users PARAMETERS:firstname:
+                  lastname:
+                  email:
+                  username:
+                  password:
+
+POST /api/login // Get authentication token for Authorization

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.sign-in-form').submit(function(e){
+  $('.form-signin').submit(function(e){
     signin();
     e.preventDefault();
   });
@@ -111,6 +111,7 @@ function show(){
 }
 function set_posts(res){
   $.each(res.data, function(i, d){
+    console.log(d);
       $('.af').append('<h3 class="'+d.id+'">'+ "Date Created: "+ d.inserted_at +" by: "+d.user.firstname+" "+d.user.lastname+ "<br>" + d.body +'</h3>');
      });
 }
