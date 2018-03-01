@@ -89,13 +89,13 @@ function post(){
 //POSTS
 function show(){
   var local = 'http://localhost:4000';
-  var deploy = 'https://bulsu.herokuapp.com';
+  var deploy1 = 'https://bulsu.herokuapp.com';
   if(localStorage.getItem("token") === null){
     alert('Please Log In to continue');
     location.href = 'home.html';
   }else{
     $.ajax({
-        url: deploy+'/api/posts',
+        url: deploy1+'/api/posts',
         headers: {
            "Authorization":"Bearer "+localStorage.getItem("token")
         },
