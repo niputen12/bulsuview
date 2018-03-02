@@ -30,6 +30,7 @@ function signup(){
       },
      success: function(res) {
        console.log('s',res);
+
      },
      error : function(res) {
        console.log('e',res);
@@ -89,13 +90,13 @@ function post(){
 //POSTS
 function show(){
   var local = 'http://localhost:4000';
-  var deploy1 = 'https://bulsu.herokuapp.com';
+  var deploy = 'https://bulsu.herokuapp.com';
   if(localStorage.getItem("token") === null){
     alert('Please Log In to continue');
     location.href = 'home.html';
   }else{
     $.ajax({
-        url: deploy1+'/api/posts',
+        url: deploy+'/api/posts',
         headers: {
            "Authorization":"Bearer "+localStorage.getItem("token")
         },
