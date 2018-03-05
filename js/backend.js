@@ -1,7 +1,6 @@
 $(document).ready(function(){
   $('.form-signin').submit(function(e){
     signin();
-    $('#myModal').modal(open);
     e.preventDefault();
   });
   $('.sign-up-form').submit(function(e){
@@ -13,6 +12,9 @@ $(document).ready(function(){
     e.preventDefault();
   })
 })
+  $('.code').click(function(){
+    verify();
+  })
 //SIGNUP
 function signup(){
   var local = 'http://localhost:4000';
@@ -30,11 +32,13 @@ function signup(){
        }
       },
      success: function(res) {
-       console.log('s',res);
+       alert("Success");
+       localStorage.setItem("email", $('.email').val());
+       //location.href = "home.html";
 
      },
      error : function(res) {
-       console.log('e',res);
+       alert(res.responseText);
      }
        });
 }
@@ -51,14 +55,38 @@ function signin(){
     },
     success: function(res){
       console.log('Success',res);
-        location.href = 'homepage.html';
+      try{
+        if(res.errors[0].detail == "Account not verified"){
+          $('#myModal').modal(open);
+
+          $.ajax({
+              url: local+'/api/users/'+$('.username').val(),
+              type: 'GET',
+              success: function(res){
+                $(".email").text(res.data.email);
+                // localStorage.setItem("email", res.data.email);
+              },
+              error: function(res){
+                console.log(res);
+              }
+          });
+        }
+      }catch(err){
+
+      }finally {
         localStorage.setItem("posts", res.data.posts);
         console.log(localStorage.getItem("posts"));
         localStorage.setItem("token", res.data.meta.token);
         localStorage.setItem("username", res.data.username);
+        location.href = 'homepage.html';
+      }
     },
     error : function(res){
       console.log('Error',res);
+      if(res.status == 500) {
+
+        alert("username or password is incorrect")
+      }
     }
 
   });
@@ -118,4 +146,17 @@ function set_posts(res){
 }
 function reset(){
   localStorage.clear();
+}
+function verify(){
+  id = localStorage.getItem("id");
+
+  $.ajax({
+              url: 'localhost:4000/api/users/'+id,
+              type: 'PATCH',
+              data: {is_verify: true,
+                       _method: "PATCH"},
+              success: function(res) {
+
+              }
+      });
 }
