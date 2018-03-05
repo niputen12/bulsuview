@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('.form-signin').submit(function(e){
     signin();
+    $('#myModal').modal(open);
     e.preventDefault();
   });
   $('.sign-up-form').submit(function(e){
@@ -17,7 +18,7 @@ function signup(){
   var local = 'http://localhost:4000';
   var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
-     url: deploy+'/api/users',
+     url: local+'/api/users',
      type: 'POST',
      data: {
        user: {
@@ -42,7 +43,7 @@ function signin(){
   var local = 'http://localhost:4000';
   var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
-    url: deploy+'/api/login',
+    url: local+'/api/login',
     type: 'POST',
     data: {
         username: $('.username').val(),
