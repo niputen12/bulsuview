@@ -60,7 +60,7 @@ function signin(){
           $('#myModal').modal(open);
 
           $.ajax({
-              url: local+'/api/users/'+$('.username').val(),
+              url: deploy+'/api/users/'+$('.username').val(),
               type: 'GET',
               success: function(res){
                 $(".email").text(res.data.email);
