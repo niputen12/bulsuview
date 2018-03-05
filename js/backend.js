@@ -39,7 +39,7 @@ function signup(){
      },
      error : function(res) {
        alert(res.responseText);
-     }local
+     }
        });
 }
 //SIGNIN
