@@ -20,7 +20,7 @@ function signup(){
   var local = 'http://localhost:4000';
   var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
-     url: local+'/api/users',
+     url: deploy+'/api/users',
      type: 'POST',
      data: {
        user: {
@@ -39,7 +39,7 @@ function signup(){
      },
      error : function(res) {
        alert(res.responseText);
-     }
+     }local
        });
 }
 //SIGNIN
@@ -47,7 +47,7 @@ function signin(){
   var local = 'http://localhost:4000';
   var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
-    url: local+'/api/login',
+    url: deploy+'/api/login',
     type: 'POST',
     data: {
         username: $('.username').val(),
@@ -146,17 +146,4 @@ function set_posts(res){
 }
 function reset(){
   localStorage.clear();
-}
-function verify(){
-  id = localStorage.getItem("id");
-
-  $.ajax({
-              url: 'localhost:4000/api/users/'+id,
-              type: 'PATCH',
-              data: {is_verify: true,
-                       _method: "PATCH"},
-              success: function(res) {
-
-              }
-      });
 }
