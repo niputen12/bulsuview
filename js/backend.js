@@ -154,6 +154,43 @@ function set_posts(res){
       '</div>');
      });
 }
+function showall(){
+  var local = 'http://localhost:4000';
+  var deploy = 'https://bulsu.herokuapp.com';
+  if(localStorage.getItem("token") === null){
+    alert('Please Log In to continue');
+    location.href = 'home.html';
+  }else{
+    $.ajax({
+        url: deploy+'/api/newsfeed',
+        headers: {
+           "Authorization":"Bearer "+localStorage.getItem("token")
+        },
+        type: 'GET',
+        success: function(res){
+          newsfeed(res);
+        },
+        error: function(res){
+          console.log(res);
+        }
+    });
+  }
+}
+function newsfeed(res){
+  $.each(res.data, function(i, d){
+      $('.newsfeed').append(
+      '<hr>'+
+      '<div class="media">'+
+        '<div class="media-left">' +
+          '<img src="images/bulsulogo.png" class="media-object" style="width:90px; margin-right: 10px;">'+
+        '</div>'+
+        '<div class ="media-body">'+
+          '<h4 class="media-heading">'+d.user.firstname +' '+ d.user.lastname +' '+ d.inserted_at+'</h4>'+
+          '<p>'+d.body+'</p>'+
+        '</div>'+
+      '</div>');
+     });
+}
 function reset(){
   localStorage.clear();
 }
