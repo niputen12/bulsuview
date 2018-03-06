@@ -141,7 +141,17 @@ function show(){
 }
 function set_posts(res){
   $.each(res.data, function(i, d){
-      $('.af').append('<h3 class="'+d.id+'">'+ "Date Created: "+ d.inserted_at +" by: "+d.user.firstname+" "+d.user.lastname+ "<br>" + d.body +'</h3>');
+      $('.af').append(
+      '<hr>'+
+      '<div class="media">'+
+        '<div class="media-left">' +
+          '<img src="/home/joshua/Desktop/static_bulsu/images/bulsulogo.png" class="media-object" style="width:90px; margin-right: 10px;">'+
+        '</div>'+
+        '<div class ="media-body">'+
+          '<h4 class="media-heading">'+d.user.firstname +' '+ d.user.lastname +' '+ d.inserted_at+'</h4>'+
+          '<p>'+d.body+'</p>'+
+        '</div>'+
+      '</div>');
      });
 }
 function reset(){
