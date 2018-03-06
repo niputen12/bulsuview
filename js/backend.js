@@ -20,7 +20,7 @@ function signup(){
   var local = 'http://localhost:4000';
   var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
-     url: deploy+'/api/users',
+     url: deploys+'/api/users',
      type: 'POST',
      data: {
        user: {
@@ -145,7 +145,7 @@ function set_posts(res){
       '<hr>'+
       '<div class="media">'+
         '<div class="media-left">' +
-          '<img src="/home/joshua/Desktop/static_bulsu/images/bulsulogo.png" class="media-object" style="width:90px; margin-right: 10px;">'+
+          '<img src="images/bulsulogo.png" class="media-object" style="width:90px; margin-right: 10px;">'+
         '</div>'+
         '<div class ="media-body">'+
           '<h4 class="media-heading">'+d.user.firstname +' '+ d.user.lastname +' '+ d.inserted_at+'</h4>'+
