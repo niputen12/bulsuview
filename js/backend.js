@@ -20,7 +20,7 @@ function signup(){
   var local = 'http://localhost:4000';
   var deploy = 'https://bulsu.herokuapp.com';
   $.ajax({
-     url: deploys+'/api/users',
+     url: deploy+'/api/users',
      type: 'POST',
      data: {
        user: {
